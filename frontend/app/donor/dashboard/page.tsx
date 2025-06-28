@@ -30,17 +30,17 @@ export default function DonorDashboard() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    message,
-                }),
+                body: JSON.stringify({ message }),
             });
-
+            
             if (res.ok) {
                 const data = await res.json();
-                setResponse(data.message || "Request processed successfully!");
+                localStorage.setItem("donationData", JSON.stringify(data));
+                router.push("/donor/confirm");
             } else {
                 setResponse("Error processing your request. Please try again.");
             }
+            
         } catch (error) {
             setResponse("Network error. Please check your connection and try again.");
         } finally {
