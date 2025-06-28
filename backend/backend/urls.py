@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import handle_donation_message
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("api/donor/donate", handle_donation_message, name="handle_donation_message"),
 ]
