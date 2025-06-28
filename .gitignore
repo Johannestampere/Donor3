@@ -1,2 +1,12 @@
 .env
 ./theory.md
+backend/venv/*
+backend/venv
+backend/venv/
+backend/db.sqlite3
+backend/core/migrations/*
+backend/venv/
+backend/backend/venv/
+backend/backend/venv/*
+backend/backend/db.sqlite3
+backend/backend/core/migrations/*
