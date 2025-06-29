@@ -10,3 +10,15 @@ backend/backend/venv/
 backend/backend/venv/*
 backend/backend/db.sqlite3
 backend/backend/core/migrations/*
+frontend/.env
+frontend/.env.local
+frontend/node_modules
+frontend/.next
+frontend/package-lock.json
+frontend/package.json
+frontend/README.md
+frontend/tsconfig.json
+frontend/tsconfig.node.json
+frontend/tsconfig.app.json
+frontend/tsconfig.base.json
+frontend/tsconfig.json

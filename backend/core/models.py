@@ -47,10 +47,9 @@ class Organization(models.Model):
     paypal_email = models.EmailField(blank=True, null=True)
     wise_account_id = models.CharField(max_length=150, blank=True, null=True)
 
-    preferred_payout_method = models.CharField(
-        max_length=10,
-        choices=PAYMENT_CHOICES,
-        default="stripe"
+    preferred_payout_methods = models.JSONField(
+        default=list,
+        help_text="List of preferred payout methods, e.g., ['stripe', 'crypto']"
     )
 
     is_verified = models.BooleanField(default=False)
@@ -58,6 +57,10 @@ class Organization(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_primary_payout_method(self):
+        """Get the first preferred payout method as primary"""
+        return self.preferred_payout_methods[0] if self.preferred_payout_methods else "stripe"
 
 class Donation(models.Model):
     CURRENCY_CHOICES = [
@@ -82,14 +85,12 @@ class Donation(models.Model):
     currency = models.CharField(max_length=10, choices=CURRENCY_CHOICES)
     method = models.CharField(max_length=10, choices=METHOD_CHOICES)
 
-    # Optional: Transaction IDs
-    tx_hash = models.CharField(max_length=150, blank=True, null=True)       # for crypto
+    tx_hash = models.CharField(max_length=150, blank=True, null=True)
     stripe_payment_intent = models.CharField(max_length=150, blank=True, null=True)
     paypal_transaction_id = models.CharField(max_length=150, blank=True, null=True)
     wise_transfer_id = models.CharField(max_length=150, blank=True, null=True)
 
-    # Metadata
-    message = models.TextField(blank=True, null=True)  # donor message (e.g., from Gemini input)
+    message = models.TextField(blank=True, null=True) 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

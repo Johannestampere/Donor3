@@ -2,27 +2,45 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { AuroraText } from "@/components/magicui/aurora-text";
 
 export default function LandingPage() {
   const router = useRouter();
+  const { data: session, status } = useSession();
+
+  const handleDonorClick = () => {
+    if (session) {
+      router.push('/donor/dashboard');
+    } else {
+      router.push('/donor/dashboard');
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
-      <div className="text-center max-w-2xl">
-        <h1 className="text-7xl font-bold text-[#9D6381] mb-6 tracking-tight drop-shadow-lg">Donor3</h1>
-        <h2 className="text-xl text-gray-500 mb-16 font-light">Charity made easy</h2>
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-start justify-center px-6"
+      style={{ backgroundImage: "url('/pic.png')" }}
+    >
+      <div className="p-8 text-left max-w-4xl ml-16">
+        <h1 className="text-6xl font-bold mb-6 tracking-tight text-white">
+          <AuroraText>Donor3</AuroraText>
+        </h1>
+        <h2 className="text-2xl text-black mb-8 font-medium">Donating made easy</h2>
+        <p className="text-lg text-black mb-16 max-w-2xl leading-relaxed">
+          Donor3 helps generous people give effortlessly and lets verified organizations receive funds without the hassle. Just type your intent—we'll handle the rest.
+        </p>
         
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-          <Link 
-            href="/donor"
-            className="w-full sm:w-72 bg-[#9D6381] text-white font-medium py-5 px-10 rounded-2xl shadow-lg hover:shadow-xl hover:bg-white hover:text-[#9D6381] hover:border-2 hover:border-[#9D6381] transform hover:scale-105 transition-all duration-300 ease-in-out no-underline text-lg"
-            style={{ textDecoration: 'none' }}
+        <div className="flex flex-col sm:flex-row gap-6 items-start">
+          <button 
+            onClick={handleDonorClick}
+            className="w-full sm:w-80 bg-[#FF0066] hover:cursor-pointer text-white font-medium py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:bg-[#8a1254] hover:scale-105 transition-all duration-200 text-lg"
           >
             For Donors
-          </Link>
+          </button>
           <Link 
             href="/organization"
-            className="w-full sm:w-72 bg-white border-2 border-[#9D6381] text-[#9D6381] font-medium py-5 px-10 rounded-2xl shadow-md hover:shadow-lg hover:bg-[#9D6381] hover:text-white transform hover:scale-105 transition-all duration-300 ease-in-out no-underline text-lg"
+            className="w-full sm:w-80 bg-[#FF0066] text-white font-medium py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:bg-[#8a1254] hover:scale-105 transition-all duration-200 no-underline text-lg text-center"
             style={{ textDecoration: 'none' }}
           >
             For Organizations
