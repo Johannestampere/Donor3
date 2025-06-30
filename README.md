@@ -1,6 +1,15 @@
-# Donor3
+# Donor3 - donating made easy.
 
-## Challenges we ran into
+Every year, billions of donations go unspent–not because people don't care, but because the process is broken. Donors struggle to find trustworthy organizations, verify causes, and manually make payments. It's fragmented, frustrating, and outdated.
 
-During development, we encountered several technical challenges that required creative solutions. Integrating the Gemini API for donation intent extraction proved complex, as the AI responses often included markdown formatting that needed to be stripped before JSON parsing. We also faced challenges with environment variable loading in Django, requiring us to properly configure the dotenv path to load API keys from the project root. The organization matching algorithm needed multiple iterations to handle keyword variations effectively, and we had to redesign the UI several times to balance functionality with user experience, particularly around the payment methods display and navigation layout.
+This is where Donor3 comes in. It's an AI-powered platform where users type how they want to help, for example: "I wanna donate 100 dollars to help refugees." We instantly match them with verified charities, handle the payments, and show them their impact—all in one seamless flow.
 
+So why now? AI has made text parsing effortless. Payment APIs are better than every and still evolving. And younger generations expect donating to be as intuitive as sending a text. We're making that happen.
+
+Anyone can help. One message, instant impact. Let's revolutionize donating with Donor3.
+
+![Demo1](/frontend/public/demo1.png)
+
+![Demo2](/frontend/public/demo2.png)
+
+![Demo3](/frontend/public/demo3.png)
