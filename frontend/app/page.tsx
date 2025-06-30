@@ -23,8 +23,8 @@ export default function LandingPage() {
       style={{ backgroundImage: "url('/pic.png')" }}
     >
       <div className="p-8 text-left max-w-4xl ml-16">
-        <h1 className="text-6xl font-bold mb-6 tracking-tight text-white">
-          <AuroraText>Donor3</AuroraText>
+        <h1 className="text-6xl font-bold mb-6 tracking-tight text-[#FF0066]">
+          Donor3
         </h1>
         <h2 className="text-2xl text-black mb-8 font-medium">Donating made easy</h2>
         <p className="text-lg text-black mb-16 max-w-2xl leading-relaxed">

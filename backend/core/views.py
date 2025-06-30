@@ -111,7 +111,7 @@ def handle_donation_message(request):
 
         return JsonResponse({
             "organizations": org_list,
-            "amount": amount,
+            "amount": amount,   
             "currency": currency,
             "user_payout_method": "paypal",
             "user_account": "tamperejohannes@gmail.com",
